@@ -1,0 +1,20 @@
+pkgname=obsidian-git
+version=9999
+revision=1
+build_style=simple
+hostmakedepends="git make"
+depends="coreutils dosfstools e2fsprogs efibootmgr parted procps-ng python3 rsync squashfs-tools util-linux f2fs-tools"
+short_desc="ObsidianOS's main way to manage ObsidianOS"
+license="MIT"
+
+source_git=https://github.com/obsidian-os/obsidianctl.git
+git_branch=main
+checksum=SKIP
+
+do_build() {
+    make
+}
+
+do_install() {
+    install -Dm755 myscript "$XBPS_DESTDIR"/usr/bin/myscript
+}
